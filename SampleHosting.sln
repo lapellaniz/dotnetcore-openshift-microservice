@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleHosting", "src\SampleHosting\SampleHosting.csproj", "{E1DAA152-9571-427E-B527-C7B65FA6AAE2}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{13D80EE8-BF26-41A6-B361-1BBE0E25FC9F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-azsb", "src\dotnet-azsb\dotnet-azsb.csproj", "{56374501-843C-4793-986B-9E2A77E2D945}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{F059B736-6CA6-401E-9AB2-F70851169FFC}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\configmap.yml = deploy\configmap.yml
+		deploy\kubedeploy.yml = deploy\kubedeploy.yml
+		deploy\secrets.yml = deploy\secrets.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A528030A-6C87-411C-BE9A-D2D5AED8EB52}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1DAA152-9571-427E-B527-C7B65FA6AAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1DAA152-9571-427E-B527-C7B65FA6AAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1DAA152-9571-427E-B527-C7B65FA6AAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DAA152-9571-427E-B527-C7B65FA6AAE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D80EE8-BF26-41A6-B361-1BBE0E25FC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D80EE8-BF26-41A6-B361-1BBE0E25FC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D80EE8-BF26-41A6-B361-1BBE0E25FC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D80EE8-BF26-41A6-B361-1BBE0E25FC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56374501-843C-4793-986B-9E2A77E2D945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56374501-843C-4793-986B-9E2A77E2D945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56374501-843C-4793-986B-9E2A77E2D945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56374501-843C-4793-986B-9E2A77E2D945}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3077071B-19B5-407B-B5EC-269123F6901D}
+	EndGlobalSection
+EndGlobal

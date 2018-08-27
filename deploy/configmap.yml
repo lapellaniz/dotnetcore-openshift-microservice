@@ -1,0 +1,7 @@
+﻿apiVersion: v1
+data:
+  appsettings.json: "{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Debug\",\r\n      \"System\": \"Information\",\r\n      \"Microsoft\": \"Information\"\r\n    }\r\n  },\r\n  \"MessageProcessor\": {\r\n    \"QueueName\": \"SampleHosting\"\r\n  },\r\n  \"Serilog\": {\r\n    \"Using\": [ \"Serilog.Sinks.Console\" ],\r\n    \"MinimumLevel\": \"Information\",\r\n    \"WriteTo\": [\r\n      {\r\n        \"Name\": \"Console\",\r\n        \"Args\": {\r\n          \"theme\": \"Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console\",\r\n          \"outputTemplate\": \"[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext} {Properties:j} >{NewLine}{Exception}\"\r\n        }\r\n      }\r\n    ],\r\n    \"Enrich\": [ \"FromLogContext\", \"WithMachineName\", \"WithThreadId\", \"WithProcessId\", \"WithExceptionDetails\" ],\r\n    \"Properties\": {\r\n      \"Application\": \"MySampleService\"\r\n    }\r\n  }\r\n}  "
+kind: ConfigMap
+metadata:
+  name: mysamplehosting-config
+  namespace: myproject  

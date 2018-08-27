@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ToolCommandName>dotnet-azsb</ToolCommandName>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <LangVersion>7.1</LangVersion>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Description>A simple tool for working with Azure Service Bus.</Description>
+    <Authors>Luis Apellaniz</Authors>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>DotNetAzureServiceBusCLI</PackageId>
+    <RootNamespace>Azure.ServiceBus.Tools</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.5" />
+  </ItemGroup>
+  <!--<ItemGroup>
+    <DotNetCliToolReference Include="dotnet-azsb" Version="1.0.0" />
+  </ItemGroup>-->
+</Project>

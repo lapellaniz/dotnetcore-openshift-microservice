@@ -1,0 +1,65 @@
+﻿apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: mysamplehosting
+  name: mysamplehosting
+  namespace: myproject
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    app: mysamplehosting
+    deploymentconfig: mysamplehosting
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      labels:
+        app: mysamplehosting
+        team: LRA
+        environment: Production
+        deploymentconfig: mysamplehosting
+    spec:
+      containers:
+      - name: mysamplehosting
+        image: 172.30.1.1:5000/myproject/samplehosting:2.3.0
+        imagePullPolicy: Always
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        readinessProbe:
+          exec:
+            command:
+            - test
+            - '`find . -name healthy.txt`'
+          initialDelaySeconds: 5
+          periodSeconds: 15
+        volumeMounts:
+        - name: mysamplehosting-config
+          mountPath: /etc/mysamplehosting/config
+        - name: mysamplehosting-secrets
+          mountPath: /etc/mysamplehosting/secrets
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 60
+      volumes:
+      - name: mysamplehosting-config
+        configMap:
+          name: mysamplehosting-config
+          optional: false
+      - name: mysamplehosting-secrets
+        secret:
+          secretName: mysamplehosting-secrets
+          optional: false
+  test: false
